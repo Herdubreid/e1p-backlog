@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/e1p-backlog
 /dist-server
 /tmp
 /out-tsc
