@@ -1,0 +1,22 @@
+.menu {
+    position: fixed;
+    left: 50%;
+    opacity: .2;
+    z-index: 99;
+    button {
+        width: 120px;        
+    }
+    img {
+        width: 24px;
+        height: 24px;
+        margin-right: 5px;
+        border-radius: 4px;
+    }
+    .home {
+        padding-left: 5px;
+    }
+}
+
+.menu:hover {
+    opacity: 1;
+}

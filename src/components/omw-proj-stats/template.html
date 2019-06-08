@@ -1,0 +1,33 @@
+<div data-bind="fadeVisible: visible$" class="omw-proj-stats card shadow m-2">
+    <e1p-header params="{ title: page.title, visible: visible$ }" class="card-header bg-primary text-light">
+    </e1p-header>
+    <div class="card-body">
+        <div class="row">
+            <svg id="chart" class="col"></svg>
+        </div>
+        <div class="row justify-content-center pb-2">
+            <div>Projects Added</div>
+        </div>
+        <div class="row justify-content-center">
+            <div data-bind="with: page" class="justify-content-center">
+                <div data-bind="attr: { id: id }" class="cal-heatmap"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div data-bind="attr: { id: `modal-${page.id}` }" class="omw-log-stats modal fade" tabindex="-1">
+    <div class="log-detail modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-light">
+                <h5 data-bind="text: `${page.title} on ${date$()} (${count$()})`" class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table data-bind="attr: { id: `table-${page.id}` }" class="table table-condensed text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+</div>

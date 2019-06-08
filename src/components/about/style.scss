@@ -1,0 +1,17 @@
+.about {
+    height: 100vh;
+
+    .title {
+        position: fixed;
+        top: 40%;
+        left: 42%;
+    }
+
+    .spinner-grow {
+        position: fixed;
+        top: 37%;
+        left: 42%;
+        width: 250px;
+        height: 100px;
+    }
+}

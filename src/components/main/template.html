@@ -1,0 +1,23 @@
+<div class="menu">
+    <button id="dropdownMenuButton" data-toggle="dropdown" type="button" class="btn-sm btn-outline-warning">
+        <i class="fas fa-caret-down"></i>
+    </button>
+    <div class="dropdown-menu">
+        <div data-bind="foreach: orderedPages$">
+            <a data-bind="click: $parent.toggle, text: title, css: { active: visible$ }" class="dropdown-item" href="#"></a>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a class="home dropdown-item" target="_blank" href="http://e1p-templates.celin.io">
+            <img src="../../images/icon.png">
+            Visit Celin Templates
+        </a>
+    </div>
+</div>
+<div class="container-fluid pl-4 pt-4">
+    <div data-bind="foreach: pages$" class="row">
+        <div data-bind="component: {
+                name: component,
+                params: { page: $data, services: $parent.services, }
+            }, class: `order-${order$()}`" class="col-auto p-0"></div>
+    </div>
+</div>

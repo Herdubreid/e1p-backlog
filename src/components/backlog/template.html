@@ -1,0 +1,33 @@
+<div data-bind="fadeVisible: visible$" class="backlog card shadow m-2">
+    <e1p-header params="{ title: page.title, visible: visible$ }" class="card-header bg-primary text-light"></e1p-header>
+    <form data-bind="with: backlog" class="card-body">
+        <div class="form-group">
+            <label for="issue-type">Issue Type</label>
+            <select data-bind="options: issueTypes, optionsText: 'name', value: $parent.issueType$" class="form-control"
+                id="issue-type">
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select data-bind="options: categories, optionsText: 'name', value: $parent.category$" id="category"
+                class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <select data-bind="options: priorities, optionsText: 'name', value: $parent.priority$" id="priority"
+                class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label for="summary">Summary</label>
+            <input data-bind="textInput: $parent.summary$" id="summary" class="form-control" type="text"
+                placeholder="Summary...">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea data-bind="textInput: $parent.description$" id="description" class="form-control" type="text"
+                placeholder="Description...">
+        </div>
+        <button data-bind="click: $parent.addIssue" type="button" class="btn btn-primary">Add</button>
+    </form>
+</div>
