@@ -8,6 +8,6 @@ Create Backlog Issue from OMW Projects.
 
 Change the Status of Backlog Issue.
 
-![Comment](imt/e1p-backlog-comment.gif)
+![Comment](img/e1p-backlog-comment.gif)
 
 Enter Comment against Backlog Issue.
