@@ -4,31 +4,35 @@ import 'bootstrap';
 import * as ko from 'knockout';
 import { Services } from '../../services';
 import { IPage } from '../../state';
-import { Actions, StoreKeys } from '../../store';
 import { LogIssueVM } from '../log-issue';
 
 const COMPONENT = 'e1p-projects';
 
 class ViewModel {
-    readonly regexSummary = new RegExp(/\[(.*?)\]/);
+    readonly regexProjectId = new RegExp(/\[(.*?)\]/);
     page: IPage;
     visible$: ko.Observable<boolean>;
     issues$: ko.ObservableArray<any>;
     services: Services;
     omwRows: any[];
-    summary$ = ko.observable<string>();
+    summary$ = ko.observable<any>();
     summaryOptions$ = ko.pureComputed(() => {
         const assigned = this.issues$()
-            .map(r => this.regexSummary.exec(r.summary))
+            .map(r => this.regexProjectId.exec(r.summary))
             .filter(r => r !== null)
             .map(r => r[1]);
         return this.omwRows
             .filter(r => !assigned.includes(r.F98220_OMWPRJID))
-            .map(r => `[${r.F98220_OMWPRJID}] - ${r.F98220_OMWDESC}`);
+            .map(r => {
+                return {
+                    title: `[${r.F98220_OMWPRJID}] - ${r.F98220_OMWDESC}`,
+                    description: r.F98220_OMWDESC
+                };
+            });
     });
     projects$ = ko.pureComputed(() => this.issues$()
         .filter(i => {
-            const omwId = this.regexSummary.exec(i.summary);
+            const omwId = this.regexProjectId.exec(i.summary);
             if (omwId) {
                 return this.omwRows.find(r => r.F98220_OMWPRJID === omwId[1]);
             }

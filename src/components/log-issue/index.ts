@@ -66,12 +66,12 @@ class ViewModel {
         this.commentEditor.setValue('');
         $(MODAL).modal();
     }
-    showNew(issueType: any, summary: string) {
+    showNew(issueType: any, summary: any) {
         this.edit$(false);
         this.issueType = issueType;
-        this.summary$(summary);
-        this.descriptionEditor.setValue(summary);
-        this.contentLength$(summary.length);
+        this.summary$(summary.title);
+        this.descriptionEditor.setValue(summary.description);
+        this.contentLength$(summary.description.length);
         $(MODAL).modal();
     }
     constructor(params: { bs: BacklogService }) {

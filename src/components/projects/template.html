@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="form-col">
-                <select data-bind="options: summaryOptions$().length > 0 ? summaryOptions$ : [' -- All Projects Assigned --'], value: summary$" class="col-auto form-control"></select>
+                <select data-bind="options: summaryOptions$().length > 0 ? summaryOptions$ : [{ title: ' -- All Projects Assigned --' }], optionsText: 'title', value: summary$" class="col-auto form-control"></select>
             </div>
         </div>
     </div>

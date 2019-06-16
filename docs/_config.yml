@@ -1,0 +1,11 @@
+title: Backup Integration
+author: Finnur Bragason
+email: fbragason@outlook.com
+description: > # this means to ignore newlines until "aux_links:"
+  An Oracle E1 Page Template  
+
+aux_links:
+  "Visit on Github":
+  - "//github.com/Herdubreid/e1p-backlog"
+
+remote_theme: pmarsceill/just-the-docs
