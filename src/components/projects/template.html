@@ -1,0 +1,21 @@
+<div data-bind="fadeVisible: visible$" class="omw-projects card shadow m-2">
+    <div class="card-header bg-primary text-light">
+        <e1p-header params="{ title: page.title, icon: page.icon, visible: visible$ }"></e1p-header>
+        <div class="form-row">
+            <div class="form-col">
+                <button data-bind="enable: summaryOptions$().length > 0, click: addIssue" type="button" class="btn btn-primary" data-toggle="tooltip" title="Assign Project"
+                    data-placement="bottom">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="form-col">
+                <select data-bind="options: summaryOptions$().length > 0 ? summaryOptions$ : [' -- All Projects Assigned --'], value: summary$" class="col-auto form-control"></select>
+            </div>
+        </div>
+    </div>
+    <div class="card-body d-flex">
+        <div data-bind="foreach: projects$" class="card-deck">
+            <e1p-project params="issue: $data, projects: $parent.projects, services: $parent.services"></e1p-project>
+        </div>
+    </div>
+</div>

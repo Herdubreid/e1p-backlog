@@ -10,7 +10,7 @@
 # dependencies
 /node_modules
 
-# Backlog API Key
+# API Keys
 /src/services/bl-key.json
 
 # IDEs and editors

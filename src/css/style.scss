@@ -5,5 +5,8 @@ $theme_colors: (
     primary: #1E4A6D
 );
 
-/* Boostrap 4 Full Bundle */
+/* Bootstrap 4 Full Bundle */
 @import '~bootstrap/scss/bootstrap';
+
+/* tui-editor ccs */
+@import '~tui-editor/dist/tui-editor.css';

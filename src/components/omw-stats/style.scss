@@ -1,0 +1,26 @@
+.omw-stats {
+    position: relative;
+    height: 0;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 0;
+    /* padding-bottom will be overwritten by JavaScript later */
+    padding-bottom: 40px;
+
+    svg {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+
+        rect {
+            height: 10px;
+            fill: sienna;
+        }
+
+        .status-21 {
+            fill: green;
+        }
+    }
+}

@@ -1,14 +1,22 @@
 //** Navigation Bar Component */
+import './style.scss';
 import * as ko from 'knockout';
+import { Main } from '../main';
 
 const component = 'e1p-header';
 
 class ViewModel {
     visible$: ko.Observable<boolean>;
     title: string;
-    minimise = () => this.visible$(false);
-    constructor(params: { title: string, visible: ko.Observable<boolean> }) {
+    icon: string;
+    refresh: () => null;
+    minimise() {
+        this.visible$(false);
+        Main.saveView();
+    }
+    constructor(params: { title: string; icon: string; visible: ko.Observable<boolean>, refresh: any }) {
         this.title = params.title;
+        this.icon = params.icon;
         this.visible$ = params.visible;
     }
 }

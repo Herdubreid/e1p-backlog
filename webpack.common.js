@@ -28,7 +28,8 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
-        new ForkTsCheckerWebpackPlugin()
+        new ForkTsCheckerWebpackPlugin(),
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/)
     ],
     module: {
         rules: [{

@@ -1,0 +1,43 @@
+<div class="log-issue">
+    <div id="log-issue-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-light">
+                    <h5 data-bind="text: summary$" class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form data-bind="submit: ok" class="card-body">
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="status">Status</label>
+                                <select data-bind="options: bs.backlog.statuses, optionsText: 'name', value: status$"
+                                    id="status" class="form-control"></select>
+                            </div>
+                            <div class="form-group col">
+                                <label for="priority">Priority</label>
+                                <select
+                                    data-bind="options: bs.backlog.priorities, optionsText: 'name', value: priority$"
+                                    id="priority" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="log-issue-editor">Description:</label>
+                            <div id="log-issue-editor"></div>
+                        </div>
+                        <div data-bind="visible: edit$" class="form-group">
+                            <label for="log-issue-comment-editor">Comment:</label>
+                            <div id="log-issue-comment-editor"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-bind="enable: contentLength$() > 5" type="submit"
+                                class="btn btn-primary">OK</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

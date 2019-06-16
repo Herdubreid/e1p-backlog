@@ -8,7 +8,7 @@ export class Services {
     init(): Promise<any[]> {
         return Promise.all([
             this.backlog.init(),
-            this.e1.init()]);
+            this.e1.init(false)]);
     }
     constructor(data: Map<string, any>) {
         this.backlog = new BacklogService(data);

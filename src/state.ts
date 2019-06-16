@@ -9,6 +9,8 @@ export interface IPage {
     id: string;
     component: string;
     title: string;
+    short: string;
+    icon: string;
     visible$: ko.Observable<boolean>;
     order$: ko.Observable<number>;
     data: any;
@@ -17,38 +19,20 @@ export interface IPage {
 export interface IBacklog {
     project: any;
     issueTypes: any[];
+    statuses: any[];
     categories: any[];
     priorities: any[];
 }
 
-export interface ICalHeatMapData {
-    data: any;
-    min: number;
-    max: number;
-}
-
 export interface IProject {
     status: string;
-    count: number;
+    name: string;
+    rows: any[];
 }
 
-export interface IProjectStatus {
-    data: any;
-    current: IProject[];
-}
-
-export interface IUserMap {
-    user: string;
-    map: any;
-}
-
-export interface IE1Stats {
+export interface IE1 {
     projectStatuses: any[];
-    activityStatuses: any[];
-    checkIns: ICalHeatMapData;
-    transfers: ICalHeatMapData;
-    projects: IProjectStatus;
-    users: IUserMap[];
+    projects: IProject[];
 }
 
 export interface IState {
@@ -59,6 +43,8 @@ export const AboutPage: IPage = {
     id: 'about',
     component: 'e1p-about',
     title: 'About Backlog',
+    short: 'About',
+    icon: '',
     visible$: ko.observable(false),
     order$: ko.observable(0),
     data: null

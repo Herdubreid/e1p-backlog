@@ -7,6 +7,7 @@ import { IState } from './state';
 export const StoreKeys = {
     view: 'view',
     Backlog: 'backlog',
+    Issues: 'issues',
     e1: 'e1'
 };
 

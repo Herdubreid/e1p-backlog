@@ -9,4 +9,4 @@ declare var JARGON_SERVICE: string;
 declare function callAISService(input: object, service: string, callback: any): void;
 
 /** Backlog */
-declare interface IResponse {}
+declare type IResponse = any;

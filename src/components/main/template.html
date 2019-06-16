@@ -1,23 +1,40 @@
-<div class="menu">
-    <button id="dropdownMenuButton" data-toggle="dropdown" type="button" class="btn-sm btn-outline-warning">
-        <i class="fas fa-caret-down"></i>
-    </button>
-    <div class="dropdown-menu">
-        <div data-bind="foreach: orderedPages$">
-            <a data-bind="click: $parent.toggle, text: title, css: { active: visible$ }" class="dropdown-item" href="#"></a>
+<div class="main">
+    <div class="fixed-top border-bottom bg-light">
+        <div class="navbar navbar-expand">
+            <div class="col">
+                <span data-bind="foreach: pages">
+                    <button data-bind="
+                    click: $parent.toggle,
+                    class: `btn-${visible$() ? '' : 'outline-'}primary`,
+                    attr: { 'title': title }" type="button" data-toggle="tooltip" data-placement="bottom"
+                        class="btn btn-lg ml-2">
+                        <i data-bind="class: `${icon} fa-xs`"></i>
+                        <span data-bind="text: ` ${short}`"></span>
+                    </button>
+                </span>
+            </div>
+            <button data-bind="click: refresh, disable: busy$" type="button" class="col-auto mr-2 btn btn-lg btn-warning" data-toggle="tooltip" title="Refresh Data" data-placement="bottom">
+                <i class="fas fa-sync"></i>
+            </button>
+            <a class="home col-auto btn p-0" target="_blank" href="http://e1p-templates.celin.io" data-toogle="tooltip"
+                data-placement="left" title="Visit Celin's Page Gallery">
+                <img src="../../images/icon.png">
+            </a>
         </div>
-        <div class="dropdown-divider"></div>
-        <a class="home dropdown-item" target="_blank" href="http://e1p-templates.celin.io">
-            <img src="../../images/icon.png">
-            Visit Celin Templates
-        </a>
+        <div class="navbar navbar-expand">
+            <e1p-omw-stats params=" projects: projects" class="col"></e1p-omw-stats>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div data-bind="foreach: pages$" class="row">
+            <div data-bind="component: {
+            name: component,
+            params: { page: $data, services: $parent.services, }
+        }, class: `order-${order$()}`" class="col-auto p-0"></div>
+        </div>
     </div>
 </div>
-<div class="container-fluid pl-4 pt-4">
-    <div data-bind="foreach: pages$" class="row">
-        <div data-bind="component: {
-                name: component,
-                params: { page: $data, services: $parent.services, }
-            }, class: `order-${order$()}`" class="col-auto p-0"></div>
-    </div>
-</div>
+<!-- Modals -->
+<e1p-log-issue params="{ bs: services.backlog, projects: projects }"></e1p-log-issue>
+<e1p-log-comment params="{ bs: services.backlog }"></e1p-log-comment>
+<e1p-view-comment></e1p-view-comment>

@@ -41,3 +41,12 @@ ko.bindingHandlers.fadeVisible = {
         ko.unwrap(value) ? $(element).fadeIn('slow') : $(element).fadeOut('slow');
     }
 }
+
+ko.bindingHandlers.winsize = {
+    init: (_, valueAccessor) => {
+        $(window).resize(_ => {
+            const value = valueAccessor();
+            value({ width: $(window).width(), height: $(window).height() })
+        });
+    }
+}
