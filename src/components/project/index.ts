@@ -52,6 +52,7 @@ class ViewModel {
     }
     constructor(params: { issue: any; projects: IProject[]; services: Services }) {
         this.issue = params.issue;
+        console.log('Issue: ', params.issue);
         this.services = params.services;
     }
 }

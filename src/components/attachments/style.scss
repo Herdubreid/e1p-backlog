@@ -1,0 +1,17 @@
+.attachments {
+
+    .dropzone {
+        border: 2px dashed #bbb;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        padding: 25px;
+        text-align: center;
+        color: darkblue;
+        background-color: rgba(135, 206, 235, .2);
+    }
+    
+    .drag-over {
+        background-color: rgba(135, 206, 235, 1);
+    }
+}

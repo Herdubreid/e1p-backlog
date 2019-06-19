@@ -1,6 +1,6 @@
 <div class="log-issue">
     <div id="log-issue-modal" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-light">
                     <h5 data-bind="text: summary$" class="modal-title"></h5>
@@ -30,6 +30,9 @@
                         <div data-bind="visible: edit$" class="form-group">
                             <label for="log-issue-comment-editor">Comment:</label>
                             <div id="log-issue-comment-editor"></div>
+                        </div>
+                        <div class="form-group">
+                            <e1p-attachments params="{ attachments: attachments$ }"></e1p-attachments>
                         </div>
                         <div class="modal-footer">
                             <button data-bind="enable: contentLength$() > 5" type="submit"

@@ -12,6 +12,7 @@ interface ISize {
 }
 
 class ViewModel {
+    margin = 200;
     winsize$ = ko.observable<ISize>({ width: $(window).width(), height: $(window).height() })
         .extend({ rateLimit: { timeout: 200, method: 'notifyWhenChangesStop' } });
     projects: IProject[];
@@ -22,7 +23,7 @@ class ViewModel {
     xLabel: (d: IProject) => string;
     fromX: (d: IProject) => number;
     drawStats(size: ISize) {
-        this.xDomain.range([0, size.width]);
+        this.xDomain.range([0, size.width - this.margin]);
         this.svg.selectAll('.x-axis')
             .call(this.xAxis);
         this.svg.selectAll('.bar')
@@ -37,7 +38,7 @@ class ViewModel {
         this.xLabel = (d: IProject) => `${d.status} - ${d.name} (${d.rows.length})`;
         this.xDomain = d3.scaleBand()
             .domain(this.projects.map(p => this.xLabel(p)))
-            .range([0, this.winsize$().width])
+            .range([0, this.winsize$().width - this.margin])
             .padding(.1);
         this.xAxis = g => g
             .attr('transform', 'translate(0, 20)')

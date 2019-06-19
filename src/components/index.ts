@@ -1,6 +1,7 @@
 import './main';
 import './omw-stats';
 import './header';
+import './attachments';
 import './projects';
 import './project';
 import './log-issue';

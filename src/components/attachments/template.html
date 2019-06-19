@@ -1,0 +1,14 @@
+<div class="attachments">
+    <label for="attachments">Attachments:</label>
+    <div id="attachments" class="form-control">
+        <div data-bind="foreach: attachments$">
+            <div data-bind="text: name" class="badge badge-secondary"></div>
+        </div>
+    </div>
+    <div data-bind="event:{
+            dragover:   dragover,
+            drop:       drop,
+            dragenter:  dragenter,
+            dragleave:  dragleave
+        }" class="dropzone form-control" id="attachments">Drop files here</div>
+</div>

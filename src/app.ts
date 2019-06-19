@@ -46,6 +46,7 @@ ko.bindingHandlers.winsize = {
     init: (_, valueAccessor) => {
         $(window).resize(_ => {
             const value = valueAccessor();
+            console.log('Width:', $(window).width());
             value({ width: $(window).width(), height: $(window).height() })
         });
     }
