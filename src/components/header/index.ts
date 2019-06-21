@@ -9,12 +9,11 @@ class ViewModel {
     visible$: ko.Observable<boolean>;
     title: string;
     icon: string;
-    refresh: () => null;
     minimise() {
         this.visible$(false);
         Main.saveView();
     }
-    constructor(params: { title: string; icon: string; visible: ko.Observable<boolean>, refresh: any }) {
+    constructor(params: { title: string; icon: string; visible: ko.Observable<boolean> }) {
         this.title = params.title;
         this.icon = params.icon;
         this.visible$ = params.visible;
