@@ -20,7 +20,7 @@
     "d3": "^5.9.2",
     "dateformat": "^3.0.3",
     "effector": "^0.18.6",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "knockout": "^3.4.2",
     "popper.js": "^1.15.0",
     "store2": "^2.7.1",
